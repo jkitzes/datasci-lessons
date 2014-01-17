@@ -91,6 +91,28 @@ it is in, say, shell scripting (pipes and redirection).
 Don't worry if you don't already know what all of the above examples mean - 
 you'll know by the end of this lesson.
 
+Getting the Files
+-----------------
+
+Our Python tutorial during this bootcamp will rely on a number of additional 
+files. The files that you'll need for each lesson are linked below - download 
+these and save them in an easily accessible folder on your hard drive. Make 
+sure that when you save each file in your browser, the appropriate file 
+extention (i.e., .ipynb) is retained.
+
+*   Scientific Programming
+    - [Student Notebook](python.ipynb)
+    - [Master Notebook](python-full.ipynb)
+   
+*   Read Write Tutorial
+    - [Student Notebook](readwrite-empty.ipynb)
+    - [Master Notebook](readwrite-full.ipynb)
+    - [File txt](sightings_recs_sm.txt), [File csv](sightings_tab_sm.csv)
+
+*   Matplotlib
+    - [Student Notebook](matplotlib-empty.ipynb)
+    - [Master Notebook](matplotlib-full.ipynb)
+
 Starting an IPython Notebook
 ----------------------------
 
