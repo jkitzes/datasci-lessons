@@ -1,4 +1,11 @@
-Version control with git
+---
+layout: lesson
+root: ../..
+title: Version Control with Git
+---
+
+
+Version Control With Git
 ========================
 
 If you're like most scientists, you spend a fair amount of your "computer time" 
