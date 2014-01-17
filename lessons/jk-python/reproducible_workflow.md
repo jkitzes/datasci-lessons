@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: ../..
+title: Creating a Reproducible Workflow
+---
+
 Creating a Reproducible Workflow
 ================================
 
