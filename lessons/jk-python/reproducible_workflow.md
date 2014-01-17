@@ -75,10 +75,10 @@ individual research projects.
 Now, within the `camera_analysis` directory, create four subdirectories:
 
     .
-	├── data
-	├── man
-	├── results
-	├── src
+    |-- data
+    |-- man
+    |-- results
+    |-- src
 
 The `data` directory will hold all of the raw data associated with the project, 
 which in this case will be just a single large csv file containing data on the 
@@ -152,12 +152,12 @@ work, you'll want to include as much information as you have.
 At this point, your project directory should look like this:
 
 	.
-	├── data
-	│   ├── README.txt
-	│   ├── sightings_tab_lg.csv
-	├── man
-	├── results
-	├── src
+    |-- data
+    |   |-- README.txt
+    |   |-- sightings_tab_lg.csv
+    |-- man
+    |-- results
+    |-- src
 
 Add both the data file and readme file to your git repository.
 
@@ -248,15 +248,15 @@ name.
 At this point, your project directory should look like this:
 
 	.
-	├── data
-	│   ├── README.txt
-	│   ├── sightings_tab_lg.csv
-	├── man
-	├── results
-	├── src
-	│   ├── mean_sightings.py
-	│   ├── sightings_tab_sm.csv
-	│   ├── test_mean_sightings.py
+    |-- data
+    |   |-- README.txt
+    |   |-- sightings_tab_lg.csv
+    |-- man
+    |-- results
+    |-- src
+    |   |-- mean_sightings.py
+    |   |-- sightings_tab_sm.csv
+    |   |-- test_mean_sightings.py
 
 Add and commit these three new files (your module, test file, and test data 
 set) to your git repository. You can commit these together, or separately if 
@@ -413,18 +413,18 @@ everything is regenerating properly.)
 At this point, your directory should look like the below.
 
 	.
-	├── data
-	│   ├── README.txt
-	│   ├── sightings_tab_lg.csv
-	├── man
-	├── results
-	│   ├── spp_table.csv
-	│   ├── spp_fig.png
-	├── src
-	│   ├── mean_sightings.py
-	│   ├── runall.py
-	│   ├── sightings_tab_sm.csv
-	│   ├── test_mean_sightings.py
+    |-- data
+    |   |-- README.txt
+    |   |-- sightings_tab_lg.csv
+    |-- man
+    |-- results
+    |   |-- spp_table.csv
+    |   |-- spp_fig.png
+    |-- src
+    |   |-- mean_sightings.py
+    |   |-- runall.py
+    |   |-- sightings_tab_sm.csv
+    |   |-- test_mean_sightings.py
 
 At this point, a natural question to ask is whether you need to add the 
 contents of your `results` directory to your git repository. The answer should 
