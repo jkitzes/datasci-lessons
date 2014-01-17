@@ -4,9 +4,6 @@ root: ../..
 title: Unit Testing and Standalone Scripts
 ---
 
-Unit Testing and Standalone Scripts
-===================================
-
 Introduction
 ------------
 

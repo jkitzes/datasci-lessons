@@ -4,9 +4,6 @@ root: ../..
 title: Scientific Python Basics
 ---
 
-Scientific Python Basics
-========================
-
 Goals
 -----
 

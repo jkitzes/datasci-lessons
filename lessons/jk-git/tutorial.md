@@ -4,10 +4,6 @@ root: ../..
 title: Version Control with Git
 ---
 
-
-Version Control With Git
-========================
-
 If you're like most scientists, you spend a fair amount of your "computer time" 
 just trying to organize and keep track track of all of the files associated 
 with your research projects. Among the many logistical headaches that you 
