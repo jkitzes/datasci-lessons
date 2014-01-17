@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: ../..
+title: Scientific Python Basics
+---
+
 Scientific Python Basics
 ========================
 
