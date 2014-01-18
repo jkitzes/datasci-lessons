@@ -12,6 +12,21 @@ discuss two topics in "software engineering", which are how to test your code
 for accuracy and how to turn your code into stand alone scripts, or programs, 
 that you can run from the command line.
 
+To complete this lesson, you'll need to download the files 
+[sightings\_tab\_sm.csv](sightings_tab_sm.csv) and 
+[sightings\_tab\_lg.csv](sightings_tab_lg.csv) and place these in the same 
+directory where you will be working on the tutorial files. If you get lost at 
+any point, or just want to see "the answers" you might also want to review the 
+following files for reference:
+
+- [mean\_sightings-full.py](mean_sightings-full.py)
+- [tes\_mean\_sightings\_full.py](tes_mean_sightings_full.py) (Note that this 
+  file specifically avoids using "test" in the title to avoid conflicts with 
+  your own unit test script.)
+
+Please don't open these files now, however, and only consult them later if you 
+get really stuck.
+
 Unit Testing Concepts
 ---------------------
 
