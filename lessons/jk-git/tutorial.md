@@ -570,7 +570,7 @@ to use this command in "real life", check out the command `git difftool` and
 how to set up an external, graphical viewer for diff-ing. Still, this is a 
 reasonable place to start for identifying changes to plain text files.
 
->###Exercise 4
+>###Exercise 3
 >Consider the command `git diff lab_mtg HEAD`. See if you can guess what the 
 >output will be, and then run it and see the actual output. Were you right?
 
@@ -681,7 +681,7 @@ The branch with the * symbol is, logically, the one that you're currently on.
 Now, let's try adding some commits that will cause the two branches to start 
 growing apart.
 
->###Exercise 5
+>###Exercise 4
 >Now that we're on the presentation branch, let's start making a few updates to 
 >our analysis specifically for our presentation. First off, we'll want the 
 >lines in our figure to be red so they can be seen better. Change the line 
@@ -700,7 +700,7 @@ happen, we had a new idea about our table. We don't need to change the table
 for the presentation, but we do want to make the change so that it will be 
 reflected later on in our dissertation.
 
->###Exercise 6
+>###Exercise 5
 >Switch back to the master branch by running `git checkout master`. Run `git 
 >lg` and review your `wildphoto` folder to make sure you understand where you 
 >are now - is the edit to make the figure line red present here? Open 
@@ -914,7 +914,7 @@ git locally for your own projects. Next we'll turn somewhat briefly to the
 basics of using git remotely for syncing, sharing and collaboration. But before 
 we do that, try your hand at the capstone exercise(s) below.
 
->###Exercise 7
+>###Exercise 6
 >To really hammer home everything that we've learned so far, try the following 
 >tasks.
 >
@@ -931,7 +931,7 @@ we do that, try your hand at the capstone exercise(s) below.
 
 If you finish the above easily, here's a bonus exercise.
 
->###Exercise 8
+>###Exercise 7
 >Make a change to your script and add it to the staging area. Then make another 
 >additional change and, before running `git add` again, run `git status`. What 
 >does this output tell you about how git understands files versus changes to 
@@ -1049,7 +1049,7 @@ on (or head over to http://github.com/my-username/wildphoto), and you'll see
 that your `script.py` file is available for all the world to see. You've just 
 published your first scientific software package!
 
->###Exercise 9
+>###Exercise 8
 >Take a few minutes to poke around the Github page for your project. In 
 >particular, try clicking on the link for the file `script.py` and the link in 
 >the header that says "7 commits". Ask your instructors any questions as they 
@@ -1157,7 +1157,7 @@ merge in all changes in the Github remote master branch to your local master
 branch (assuming that the owner is on the master branch - run `git checkout 
 master` if you're not sure).
 
->###Exercise 10
+>###Exercise 9
 >Complete the three steps described above for a simple collaborative workflow. 
 >The instructors will come around the room to help you.
 
