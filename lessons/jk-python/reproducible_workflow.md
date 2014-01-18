@@ -109,8 +109,8 @@ to frequently commit your changes as we discussed in the Git tutorial.
 
 Often, we start a project with a particular data file, or set of data files. In 
 this case, we have the file `sightings_tab_lg.csv`, which contains the records 
-that we want to analyze. Copy this file from our Github repo into the `data` 
-subdirectory.
+that we want to analyze. Download this file [here](sightings_tab_lg.csv) and 
+place it in the `data` subdirectory.
 
 Now we reach an interesting question - should your `data` directory be placed 
 under version control (ie, should you `git add` and `git commit` these files)? 
@@ -159,7 +159,7 @@ At this point, your project directory should look like this:
     |-- results
     |-- src
 
-Add both the data file and readme file to your git repository.
+Commit both the data and README files to your git repository.
 
 What about the case in which your raw data is hosted elsewhere, on a SQL 
 server, for example, or a shared hard drive with your lab? Now your data is 
@@ -189,8 +189,10 @@ like to create and save a simple histogram that shows this result visually.
 #### Modules and tests
 
 We've already done the work of writing much of this code earlier today, so at 
-this point, we can simply copy and paste the file `mean_sightings.py` from our 
-workshop's git repo into your `src` subdirectory.
+this point, we can simply copy and paste the file `mean_sightings.py` that you 
+created earlier in the testing lesson into your `src` subdirectory. Or you can 
+download a complete copy of this file [here](mean_sightings-full.py), making 
+sure to delete the "-full" from the end of the file name.
 
 Note, of course, that this is not the normal workflow for this step. Normally, 
 you'd spend days/weeks/months working in the `src` directory, writing code and 
@@ -226,24 +228,28 @@ said, though, this is a great strategy if you think you need to feel your way
 around for a while.
 
 OK, back to our project. We now have the file `mean_sightings.py` in our `src` 
-directory. Now copy in the file `test_mean_sightings.py`, which contains our 
-unit tests of the functions in `mean_sightings.py`. You may recall that our 
-test functions made use of a small data set, `sightings_tab_sm.csv`, that we 
-created specifically for the purpose of testing our code. It can be a bit 
-awkward deciding where to place this csv file - you could potentially put it in 
-`data`, or here in the `src` directory, or perhaps in a subdirectory of `src` 
-called `tests` or something like that. This is somewhat a matter of personal 
-preference - for now, just copy and paste it here into the `src` directory 
-(even though it's not technically code). You may want to create a readme file 
-for this test data set as well so that you can remember how you created it.
+directory. Now copy in your file `test_mean_sightings.py`, which contains the 
+unit tests that you wrote for the functions in `mean_sightings.py` (or download 
+a copy [here](tes_mean_sightings_full.py), making sure to change the file name 
+to start with "test").
+
+You may recall that our test functions made use of a small data set, 
+`sightings_tab_sm.csv` (which you can download [here](sightings_tab_sm.csv) if 
+you need to), that we created specifically for the purpose of testing our code. 
+It can be a bit awkward deciding where to place this csv file - you could 
+potentially put it in `data`, or here in the `src` directory, or perhaps in a 
+subdirectory of `src` called `tests` or something like that. This is somewhat a 
+matter of personal preference - for now, just copy and paste it here into the 
+`src` directory (even though it's not technically code). You may want to create 
+a readme file for this test data set as well so that you can remember how you 
+created it.
 
 Just to be sure we did everything right, go ahead and run `nosetests` from the 
 Terminal and make sure that your functions still pass. If they don't for some 
-reason, you can try to debug your function or just cheat by copying the file 
-`mean_sightings-full.py` and `tes_mean_sightings-full.py` from our workshop's 
-git repo into your `src` directory. Be sure to remove the `-full` portion of 
-the file names and to add a second `t` to the word `test` in the second file 
-name.
+reason, you can try to debug your function or just cheat by copying the master 
+`mean_sightings.py` and test files linked above into your `src` directory. Be 
+sure to remove the `-full` portion of the file names and to add a second `t` to 
+the word `test` in the second file name if you do this.
 
 At this point, your project directory should look like this:
 
