@@ -10,10 +10,10 @@ with your research projects. Among the many logistical headaches that you
 likely deal with on a daily basis are:
 
 1.  Updating files, like scripts or papers, without losing copies of your old 
-    version (Myfile_2014_01_v2-3_round2_sent.doc)
+    version (Myfile\_2014\_01\_v2-3\_round2\_sent.doc)
 
 2.  Locating the particular version of a file that produced a given result
-    (Myfile_withrevisions_advisorSent_Final_FINAL_Submitted.doc).
+    (Myfile\_withrevisions\_advisorSent\_Final\_FINAL\_Submitted.doc).
 
 3.  Figuring out what changed between two versions of a file (When was the last 
     time I updated the regression model?)
