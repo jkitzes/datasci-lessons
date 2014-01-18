@@ -109,6 +109,7 @@ extention (i.e., .ipynb) is retained.
 *   Matplotlib
     - [Student Notebook](matplotlib-empty.ipynb)
     - [Master Notebook](matplotlib-full.ipynb)
+    - [Image](lena.png)
 
 Starting an IPython Notebook
 ----------------------------
