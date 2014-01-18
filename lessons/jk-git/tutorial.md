@@ -10,26 +10,23 @@ with your research projects. Among the many logistical headaches that you
 likely deal with on a daily basis are:
 
 1.  Updating files, like scripts or papers, without losing copies of your old 
-    version (Myfile\_2014\_01\_v2-3\_round2\_sent.doc)
+    version (Myfile\_2014\_01\_v2\_Sent\_Final\_FINAL\_Submitted.doc)
 
-2.  Locating the particular version of a file that produced a given result
-    (Myfile\_withrevisions\_advisorSent\_Final\_FINAL\_Submitted.doc).
-
-3.  Figuring out what changed between two versions of a file (When was the last 
+2.  Figuring out what changed between two versions of a file (When was the last 
     time I updated the regression model?)
 
-4.  Maintaining multiple versions of files that started off the same but then 
+3.  Maintaining multiple versions of files that started off the same but then 
     diverged (I need to make a lab meeting version and a poster version of 
     Figure 1, which are mostly the same but not exactly.)
 
-5.  Merging two divergent copies of a file (I want to add the Figure 1 changes 
+4.  Merging two divergent copies of a file (I want to add the Figure 1 changes 
     from the poster into the file that makes the figures for my paper, but 
     without losing all of the new stuff that I've added to the latter file.)
 
-6.  Sharing your files (and their history) with the world - or just a few 
+5.  Sharing your files (and their history) with the world - or just a few 
     collaborators.
 
-7.  Syncing versions of your project files across multiple computers and 
+6.  Syncing versions of your project files across multiple computers and 
     collaborating with colleagues on projects.
 
 We've all developed various habits and protocols that we use (consciously or 
@@ -506,25 +503,15 @@ before you start committing more changes - we'll explain that more in a minute.
 You can run the `git lg` command above again to see that, in fact, your `HEAD` 
 has returned to the most recent commit.
 
-2. Labeling and accessing version history
------------------------------------------
-
-As we just saw, we can use `git checkout` with the name of the hash associated 
-with a commit to go backwards and forwards in our project history as we see 
-fit. Finding the commit hashes can be a pain, however, especially when the 
-number of commits gets large. Fortunately, git gives us an easy way to label 
-particularly important commits so that we can easily get to them later on.
-
-To do this, we use a command called `git tag`. Let's say that this first 
-complete version of our script, the one that is represented by our most recent 
-commit and currently present in our workspace, generated some results that we 
-presented at our lab meeting. Since this is a place that we might want to 
-return to easily in the future (how exactly did I make the figure that my 
-advisor hated?), we'll give it a tag for easy reference.
+A final word about using commit hashes to check out versions. Aside from using 
+a hash, git gives us an easy way to label particularly important commits so 
+that we can easily get to them later on. To do this, we use a command called 
+`git tag my-tag-name`. For example, you can tag our current commit with the 
+name `lab_mtg` by running the command
 
     $ git tag lab_mtg
 
-Running our `git log` command, we now see
+Running our `git lg` command, we now see
 
     $ git lg
     * 89f5445 (HEAD, tag: lab_mtg, master) Add initial code to make small figure
@@ -532,45 +519,24 @@ Running our `git log` command, we now see
     * beda5b7 Initial commit of script to analyze camera data
 
 In addition to HEAD and master, we now see that the commit 89f5445 is labeled 
-by a tag lab_mtg.
+by a tag `lab_mtg`. We can now use this label instead of the commit hash to 
+work with this commit from here forward.
 
->###Exercise 3
->After the lab meeting where our advisor hated our figure, we decided we had to 
->add some axes labels. Open `script.py` and add the line `Add axes lables` 
->under the line `Make small figure`. Commit this change. Run git lg and examine 
->the output - notice that HEAD and master have advanced to your most recent 
->commit, but your `lab_mtg` tag has stayed put. Use `git checkout` to checkout 
->the lab meeting version of your workspace, but use the tag name instead of the 
->hash to do so. Check your workspace and run `git lg` to see what happened. 
->Then run `git checkout master` to come back to your most recent commit.
-
-Here's a tip for commit messages. If you just want to add the opening sentence 
-of a commit, without a longer description, you can run `git commit -m "My 
-message"` directly from the command line so that you don't have to drop into 
-and out of a text editor every time.
-
-You can use tags any time that you want, and feel free to use as many as you 
-want (they're very light weight and hardly take up any computer resources). 
-Just remember, as per the warning that you just saw, that you'll be back in a 
-detached HEAD state when you check out a tag. Once again, that means don't 
-check out a tag and start making changes and committing.
-
-3. Comparing two versions of a file
+2. Comparing two versions of a file
 -----------------------------------
 
-In the previous two sections, we saw how we could roll back our entire project 
-to a previous state. While this is great for reviewing the history of our 
-project, it doesn't help us much if we want to compare versions of a file from 
-two particular points in that history (for example, compare our current version 
-to a version a few commits back). For this, we can use two different 
-techniques.
+In the previous section, we saw how we could roll back our entire project to a 
+previous state. While this is great for reviewing the history of our project, 
+it doesn't help us much if we want to compare versions of a file from two 
+particular points in that history (for example, compare our current version to 
+a version a few commits back). For this, we can use two different techniques.
 
 ### Comparing files 1
 
 If the file that you want to compare is simply a plain text file, like our 
 `script.py`, then we can use an easy command called `git diff`.
 
-    $ git diff beda5b7:script.py 7d70b8f:script.py
+    $ git diff beda5b7:script.py 89f5445:script.py
     diff --git a/script.py b/script.py
     index b60af41..b4c75da 100644
     --- a/script.py
@@ -583,7 +549,6 @@ If the file that you want to compare is simply a plain text file, like our
     +Make table
     +
     +Make small figure
-    +Add axes labels
 
 In the above command, we entered the hash for the earlier commit (here, our 
 initial commit) followed by the hash for the later commit (here, our most 
@@ -644,7 +609,7 @@ approach to approximate the `git diff` command above. Simply use `git show` to
 bring an old copy of your Word doc into your workspace and then use the Word 
 (Compare and Merge Documents)[http://support.microsoft.com/kb/306484] feature.
 
-4. Maintaining multiple project branches
+3. Maintaining multiple project branches
 ----------------------------------------
 
 So far, the techniques that we've looked at provide a unified way of replacing 
@@ -673,8 +638,7 @@ Let's walk through this process, which should make the above example more
 clear. First, we can run our `git lg` command again to see where we are.
 
     $ git lg
-    * 7d70b8f (HEAD, master) Add axes labels
-    * 89f5445 (tag: lab_mtg) Add initial code to make small figure
+    * 89f5445 (HEAD, tag: lab_mtg, master) Add initial code to make small figure
     * 97e3498 Add code to make table
     * beda5b7 Initial commit of script to analyze camera data
 
@@ -691,8 +655,8 @@ with a new additional option.
     $ git checkout -b presentation
     Switched to a new branch 'presentation'
     $ git lg
-    * 7d70b8f (HEAD, presentation, master) Add axes labels
-    * 89f5445 (tag: lab_mtg) Add initial code to make small figure
+    * 89f5445 (HEAD, tag: lab_mtg, presentation, master) Add initial code to 
+      make small figure
     * 97e3498 Add code to make table
     * beda5b7 Initial commit of script to analyze camera data
 
@@ -723,6 +687,11 @@ growing apart.
 >lines in our figure to be red so they can be seen better. Change the line 
 >"Make small figure" to "Make small figure, red line" and commit this change. 
 >Run `git lg` and review the output. What has happened?
+
+Here's a tip for commit messages. If you just want to add the opening sentence 
+of a commit, without a longer description, you can run `git commit -m "My 
+message"` directly from the command line so that you don't have to drop into 
+and out of a text editor every time.
 
 From running `git lg`, you can see that we've added a commit (i.e., some new 
 growth) to the presentation branch, while the master branch has stayed where it 
@@ -810,7 +779,6 @@ see our current status shows us the following.
     | * df89527 (presentation) Make line red
     * | 013b1af Make header bold
     |/
-    * 7d70b8f Add axes labels
     * 89f5445 (tag: lab_mtg) Add initial code to make small figure
     * 97e3498 Add code to make table
     * beda5b7 Initial commit of script to analyze camera data
@@ -1084,7 +1052,7 @@ published your first scientific software package!
 >###Exercise 9
 >Take a few minutes to poke around the Github page for your project. In 
 >particular, try clicking on the link for the file `script.py` and the link in 
->the header that says "8 commits". Ask your instructors any questions as they 
+>the header that says "7 commits". Ask your instructors any questions as they 
 >come up.
 >
 >If you'd like to make sure that you've got this workflow down, create a README 
@@ -1274,7 +1242,7 @@ for these purposes is the "opposite" of a plain text file. Binary files are
 files, like an image, that cannot be converted into any sort of textual 
 representation. Because they cannot be diff-ed, version control is somewhat 
 less useful for binary files, although it can still help greatly with headaches 
-1, 2, 4, 6, and 7 above.
+1, 3, 5, and 6 above.
 
 Somewhere in between plain text and binary files are markup files like xml 
 files, html files, the IPython notebook files, Microsoft's docx format, etc. 
