@@ -123,10 +123,10 @@ Once in the directory, run the command `ipython notebook`, which will launch a
 local webserver and open your default browser. From there you can open an 
 existing notebook, create a new notebook, and start working.
 
-Note that if you are on a Windows machine, this command will probably not run 
-in Git bash or Cygwin. Instead, open a Command Prompt (click on the Start menu 
-and type `cmd` in the search box for Windows 7, or click on Run then type cmd 
-for Windows XP), navigate to the appropriate directory, and run the command 
+Note that if you are on a Windows machine, this command may not run under 
+mysysgit or Cygwin. If it doesn't, open a Command Prompt (click on the Start 
+menu and type `cmd` in the search box for Windows 7, or click on Run then type 
+cmd for Windows XP), navigate to the appropriate directory, and run the command 
 `ipython notebook`.
 
 Asking Questions
