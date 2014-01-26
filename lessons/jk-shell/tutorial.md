@@ -81,10 +81,11 @@ and interacting with files and directories on your hard drive (similar to what
 you normally do with your mouse and graphical operating system). Second, we'll 
 discuss how to use the shell to launch other useful command line programs that 
 can perform tasks for us (similar to opening Excel to delete a column from a 
-spreadsheet and saving the resulting file). Finally, we'll discuss the concept 
-of "doing small things well" and chaining different programs together to 
-achieve an overall computing tasks, which is a mental model that is very 
-important in scientific computing.
+spreadsheet and saving the resulting file). Third, we'll discuss the concept of 
+"doing small things well" and chaining different programs together to achieve 
+an overall computing tasks, which is a mental model that is very important in 
+scientific computing. Finally, we'll close with a discussion of how to "find 
+things" (both file names and text within files) in the shell.
 
 1. Working with directories and files
 -------------------------------------
@@ -308,7 +309,7 @@ still there in the background), and you'll be dropped into a very simple text
 editor. Enter the following lines in your text editor.
 
     Fox,1
-    Coyote,5
+    Wolverine,5
     Wolf,3
 
 When you're done, as helpfully suggested by the lines at the bottom of your 
@@ -319,7 +320,7 @@ It will ask you if you want to save the file - type Y for yes. Name the file
 
 >###Exercise 2
 >Create another file in this directory called `birds.csv` that indicates that 
->you saw 4 Owl, 3 Pigeon, and 7 Hawk (use the same format as the `mammals.csv` 
+>you saw 4 Owl, 3 Tern, and 7 Hawk (use the same format as the `mammals.csv` 
 >file to enter this data).
 
 You may recognize the file extension `csv` as standing for "comma separated 
@@ -392,10 +393,10 @@ contents of a file (or multiple files, glued together) to the terminal window.
 
     bootcamp$ cat mammals.csv birds.csv
     Fox,1
-    Coyote,5
+    Wolverine,5
     Wolf,3
     Owl,4
-    Pigeon,3
+    Tern,3
     Hawk,7
 
 Let's say that we want to create a combined csv file `animals.csv` that 
@@ -408,10 +409,10 @@ below.
     animals.csv	birds.csv	mammals.csv
     bootcamp$ cat animals.csv 
     Fox,1
-    Coyote,5
+    Wolverine,5
     Wolf,3
     Owl,4
-    Pigeon,3
+    Tern,3
     Hawk,7
 
 While the redirect symbol `>` will create a new file, overwriting an old one if 
@@ -425,12 +426,12 @@ by animal name. For sorting, we can use the command `sort`, which prints the
 sorted contents of a file to the terminal.
 
     bootcamp$ sort animals.csv
-    Coyote,5
     Fox,1
     Hawk,7
     Owl,4
-    Pigeon,3
+    Tern,3
     Wolf,3
+    Wolverine,5
     bootcamp$ sort animals.csv > sorted_animals.csv
    
 Note how the output of `sort animals.csv` compares to the output of `cat 
@@ -447,12 +448,12 @@ skip that step by using a pipe.
     bootcamp$ rm animals.csv sorted_animals.csv
     bootcamp$ cat mammals.csv birds.csv | sort > sorted_animals.csv
     bootcamp$ cat sorted_animals.csv 
-    Coyote,5
     Fox,1
     Hawk,7
     Owl,4
-    Pigeon,3
+    Tern,3
     Wolf,3
+    Wolverine,5
     
 Here we first removed `animals.csv` and `sorted_animals.csv` from our previous 
 commands. Then we ran the `cat` command on our two files, piped the output of 
@@ -467,6 +468,118 @@ sorted_animals.csv.
 >(Hint: See the `man` page for `wc` for an option to return just the line 
 >count.)
 
+4. Finding things
+-----------------
+
+We'll close our quick tour of the shell by discussing how to use a well-known 
+command line program, `grep`to find lines within files that match a pattern. 
+Although `grep` is only one of many searching tools that you might use, it is 
+very widely known, relatively simple to learn, and will give us the opportunity 
+to briefly examine the topic of "regular expressions".
+
+The basic usage of `grep` involves two arguments, the first giving the string 
+to match and the second giving the file to match it in. For example, if we 
+wanted to find all of the animals with 3 sightings, we could run
+
+    bootcamp$ grep 3 sorted_animals.csv
+    Tern,3
+    Wolf,3
+
+Since `grep` matches text strings, independent of their locations within lines, 
+we can also easily search, for example, for all lines containing the letter 
+"n".
+
+    bootcamp$ grep n sorted_animals.csv
+    Tern,3
+    Wolverine,5
+
+`grep` has lots of flags that change its behavior, and I encourage you to 
+review these using `man grep` (or `grep --help` in Git Bash). For example, `-n` 
+will print the number line for each match and `-i` makes the search insensitive 
+to case.
+
+    bootcamp$ grep -n o sorted_animals.csv
+    1:Fox,1
+    5:Wolf,3
+    6:Wolverine,5
+    bootcamp$ grep -n -i o sorted_animals.csv
+    1:Fox,1
+    3:Owl,4
+    5:Wolf,3
+    6:Wolverine,5
+
+The real power of `grep`, however, comes from its ability to use a special 
+language, known as regular expressions, to specify the search patterns. This 
+allows us to include wildcards in our searches, and to search for more complex 
+patterns than just consecutive letters. Regular expressions are a whole lesson 
+unto themselves, but here are a few quick tips:
+
+- `^` stands for the start of a line, and `$` for the end of a line
+- `.` stands for any character
+- `*` means to match any number of the previous character, so `.*`, for 
+  example, matches any number of any character
+- [] matches any one of the characters between the brackets
+
+To use regular expressions in our `grep` calls, we use the option `-E` to 
+denote that we're using extended regular expression as our pattern. For 
+example, here's an expression to find all lines that start with the letter "W"
+
+    bootcamp$ grep -E '^W' sorted_animals.csv
+    Wolf,3
+    Wolverine,5
+
+and one to find all the lines in which the second letter is "o".
+
+    bootcamp$ grep -E '^.o' sorted_animals.csv
+    Fox,1
+    Wolf,3
+    Wolverine,5
+
+>###Exercise 5
+>Using regular search strings or regular expressions where necessary, use grep 
+>to extract lines from `sorted_animals.csv for which (1) the second letter is a 
+>vowel (all animals except Owl), and (2) the line contains an "r" and later an 
+>"n" (Tern and Wolverine).
+
+It's usually the case in practice that we'll combine `grep` with pipes and 
+redirects to immediately do additional processing on the results of our search. 
+That said, a very simple and common use case is `grep TODO *.py`, which 
+searches for and prints all of the lines (usually code comments) containing the 
+string `TODO` that occur in all of the Python files in this directory (the 
+`*.py` uses a simple system wildcard to find all files ending with `.py` in 
+this directory).
+
+Aside from searching within files to extract lines of text, it's also often the 
+case that we want to search for and return the names of files and directories 
+that match certain patterns, which we can do using `find`. While this 
+functionality in some sense can be duplicated by tools like OS X's Spotlight, 
+the command line program `find` offers additional functionality and can easily 
+be used to extract file or directory names that can then be piped to other 
+command line programs.
+
+To get started, make sure you're in your bootcamp directory, and then create 
+two files called `animals.txt` and `animals2.txt`, as well as three directories 
+called `data11`, `data12`, and `data20`. Note that we can pass multiple 
+arguments to both the `touch` and `mkdir` commands to do this more quickly.
+
+    bootcamp$ touch animals.txt animals1.txt
+    bootcamp$ mkdir data11 data12 data20
+    bootcamp$ ls
+    animals.csv		    birds.csv		data20
+    animals.txt		    data11			mammals.csv
+    animals1.txt		data12			sorted_animals.csv
+
+Similar to `grep`, the `find` command takes an argument for the path to search 
+followed by the expression to use for the search (note that this is sort of the 
+opposite order of arguments from `grep`, which takes the expression followed by 
+the path). For example, to find all files and directories containing the letter 
+"a", we can run
+
+
+
+
+
+
 Wrapping up
 -----------
 
@@ -480,10 +593,9 @@ integrate all that we've learned so far.
 >   `spring.txt`, which contain one line for the title and units of each class 
 >   that you took last fall and that you will take this spring. For example, 
 >   `Intro Bio (3)`.
->3. The command `grep string file` is a powerful way to search files - it will 
->   print back to the terminal all lines in `file` that contain `string` in 
->   them. Try this out on one of your text files to see how it works.
->4. Using pipes, redirects, and/or the programs that we've mentioned so far, 
+>3. Using pipes, redirects, and/or the programs that we've mentioned so far, 
 >   save a file `3_unit_classes.txt` that contains a single number giving the 
 >   count of the number of classes you will take this year that are exactly 3 
 >   units (or some other unit count, if you didn't take any 3 unit classes).
+>4. Use find to return the names of all files in this directory that contain 
+>   the letter "a".
