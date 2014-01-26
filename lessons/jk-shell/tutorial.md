@@ -49,6 +49,14 @@ control, testing, and reproducible workflows. Furthermore, once you become
 comfortable in the shell, you'll find that there are many tasks that you can do 
 more quickly through the shell than through your old graphical programs. 
 
+More specifically, in this lesson we'll review how to use the shell for four 
+common types of tasks that are a part of scientific computing.
+
+1. Viewing and interacting with files and directories on your hard drive
+2. Launching and using command line programs
+3. Chaining different programs together to achieve overall computing tasks
+4. Searching for text within files
+
 Launching the shell
 -------------------
 
@@ -75,17 +83,6 @@ the `$` symbol. This state is known as being at a command prompt, and it's the
 first step in the read-execute-print loop that we mentioned earlier. In other 
 words, the shell is now waiting for us to tell it to do something.
 
-We're now going to walk through three basic sets of skills related to the 
-shell. First, we'll discuss how to use the shell as an alternate way of viewing 
-and interacting with files and directories on your hard drive (similar to what 
-you normally do with your mouse and graphical operating system). Second, we'll 
-discuss how to use the shell to launch other useful command line programs that 
-can perform tasks for us (similar to opening Excel to delete a column from a 
-spreadsheet and saving the resulting file). Third, we'll discuss the concept of 
-"doing small things well" and chaining different programs together to achieve 
-an overall computing tasks, which is a mental model that is very important in 
-scientific computing. Finally, we'll close with a discussion of how to "find 
-things" (both file names and text within files) in the shell.
 
 1. Working with directories and files
 -------------------------------------
@@ -549,37 +546,6 @@ string `TODO` that occur in all of the Python files in this directory (the
 `*.py` uses a simple system wildcard to find all files ending with `.py` in 
 this directory).
 
-Aside from searching within files to extract lines of text, it's also often the 
-case that we want to search for and return the names of files and directories 
-that match certain patterns, which we can do using `find`. While this 
-functionality in some sense can be duplicated by tools like OS X's Spotlight, 
-the command line program `find` offers additional functionality and can easily 
-be used to extract file or directory names that can then be piped to other 
-command line programs.
-
-To get started, make sure you're in your bootcamp directory, and then create 
-two files called `animals.txt` and `animals2.txt`, as well as three directories 
-called `data11`, `data12`, and `data20`. Note that we can pass multiple 
-arguments to both the `touch` and `mkdir` commands to do this more quickly.
-
-    bootcamp$ touch animals.txt animals1.txt
-    bootcamp$ mkdir data11 data12 data20
-    bootcamp$ ls
-    animals.csv		    birds.csv		data20
-    animals.txt		    data11			mammals.csv
-    animals1.txt		data12			sorted_animals.csv
-
-Similar to `grep`, the `find` command takes an argument for the path to search 
-followed by the expression to use for the search (note that this is sort of the 
-opposite order of arguments from `grep`, which takes the expression followed by 
-the path). For example, to find all files and directories containing the letter 
-"a", we can run
-
-
-
-
-
-
 Wrapping up
 -----------
 
@@ -597,5 +563,3 @@ integrate all that we've learned so far.
 >   save a file `3_unit_classes.txt` that contains a single number giving the 
 >   count of the number of classes you will take this year that are exactly 3 
 >   units (or some other unit count, if you didn't take any 3 unit classes).
->4. Use find to return the names of all files in this directory that contain 
->   the letter "a".
