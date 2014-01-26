@@ -190,7 +190,7 @@ data set - Fox, Wolf, Grizzly, and Wolverine - and a second column that
 contains the total number of records associated with each species. Second, we'd 
 like to create and save a simple histogram that shows this result visually.
 
-#### Modules and tests
+### Modules
 
 We've already done the work of writing much of this code earlier today, so at 
 this point, we can simply copy and paste the file `mean_sightings.py` that you 
@@ -247,6 +247,160 @@ Plus you may end up writing your unit tests at the end (you are going to write
 them, aren't you?) rather than iteratively with your code as you go. All that 
 said, though, this is a great strategy if you think you need to feel your way 
 around for a while.
+
+### Documentation
+
+Documentation is an important part of creating a reproducible workflow - rather 
+than simply reproducing results, you can think of documentation as helping you 
+to reproduce the thought process that led you to design your code in a 
+particular way. Being able to call up and recreate the thought process that led 
+to your code is imporant both for "future you", who will eventually come back 
+to this code in other projects, or at a minimum when writing the manuscript for 
+this project, and for other users who might need to apply or maintain your code 
+in the future.
+
+Every programming language has its own guidelines and style for documentation - 
+regardless of what language you're using, I'd suggest Googling something like 
+"<my language name> style guide", and similar strings, to read about common 
+conventions for that language. Below, we'll briefly discuss documentation in 
+the context of Python modules, but a similar high-level conceptual framework 
+will apply to any language.
+
+In short, I would suggest mentally dividing your documentation into four basic 
+levels, ranging from the smallest to the broadest scale.
+
+#### 1. Line-level comments
+
+At the smallest scale are line-by-line comments on your code, such as
+
+    # If animal is not present, set mean counts per sigting to zero
+    if totalrecs == 0:
+        meancount = 0
+    else:
+        meancount = np.mean(tab['Count'][isfocus])
+
+Code comments such as these should generally be restricted to one line, 
+although two or three lines would be OK for cases that require more 
+explanation. Most importantly, comments should __describe what the code is 
+intended to do and why__, not simply repeat literally what the code does. The 
+above comment, for example, explains the purpose of the subsequent lines. In 
+contrast, the comment below is basically useless, as it simply repeats what 
+anyone reading the code could have already told you.
+
+    # Set x to zero
+    x = 0
+
+A better option would be
+
+    # Initialize running count of individuals
+    x = 0
+
+There's an art to determining how many comments are too many. I tend to 
+personally be quite verbose with my comments, as I tend to use comments as 
+markers to help me find the sections of my code that perform particular 
+conceptual steps. Most of my code thus has a comment every three to five lines 
+or so, although some would find this excessive.
+
+Finally, make sure not to let your comments get out of date - when you update 
+your code, you __must__ update the corresponding comments. An out of date or 
+incorrect comment is worse than no comment at all.
+
+If you haven't done so already, open your `mean_sightings.py` file and add a 
+few code comments.
+
+#### 2. Function-level definitions
+
+All languages have conventions surrounding how to document the operations of a 
+function. We've see lots of function definitions throughout this bootcamp 
+whenever we looked up how to use a function like `np.array` (recall that you 
+can call `np.array?` from an IPython notebook, for example, to see its function 
+definition). In Python, a description of a function is known as a docstring. 
+Many scientific Python packages use a convention similar to the below.
+
+    def get_sightings(filename, focusanimal):
+        """
+        Get number of sightings of a focus animal in a data set.
+
+        Parameters
+        ----------
+        filename : str
+            Path to file containing sightings data
+        focusanimal : str
+            Name of focus animal (not case sensitive)
+
+        Returns
+        -------
+        result : tuple
+            Tuple containing total count of number of focus animal seen and mean
+            count of individuals per sighting event.
+
+        Notes
+        -----
+        Data file must be csv format with Animal and Count columns containing
+        animal name and count of individuals per sighting, respectively.
+
+        """
+
+Note a few important features of this docstring. First, it's indented, just 
+like all of the other code within a function. Second, it starts immediately 
+after the line defining the function, and starts and ends with three quotation 
+marks (which, in Python, defines a multi-line string). Third, the first line of 
+the docstring is a single line describing the high level purpose and/or 
+function of the function. The rest of the docstring structure is not as 
+standardized, but the above example is a basic form that's common in scientific 
+Python packages.
+
+As we previously discussed, a nice feature of docstrings is that they integrate 
+nicely into the ways of getting help in IPython, for example, as well as with 
+other documentation tools such as Sphinx that we'll mention later. See 
+[PEP257](http://www.python.org/dev/peps/pep-0257/) for some additional 
+information and standards for docstrings.
+
+If you haven't already, add a nice docstring to your function(s) in 
+`mean_sightings.py`.
+
+#### 3. Module-level documentation
+
+At a higher level, you should also provide some overarching documentation of 
+each of your Python module files. This is usually a relatively short summary, 
+compared to a function-level docstring, that states the purposes of the module 
+and lists what the module contains.
+
+    #!/usr/bin/env python
+
+    """
+    Module containing functions to calculate mean number of sightings of a given
+    animal in a given sightings csv file.
+
+    Functions
+    ---------
+    get_sightings - get number of sightings of focus animal in data set
+
+    """
+
+As with function docstrings in Python, a module docstring is set off by triple 
+quotes and appears at the very top of the module.
+
+If you haven't already, add a short module docstring to `mean_sightings.py`.
+
+#### 4. Package-level and user documentation
+
+At the highest level of documentation, we find information that is intended 
+(mostly) to be read by users of your code to gain an overview of everything 
+that your code does. We won't talk about this level in detail, as it only 
+matches the other three levels in importance for larger projects that are 
+shared widely and maintained on an ongoing basis (which may not apply to many 
+of your research projects). If you are interested in learning more about this 
+process for Python packages, I'd suggest having a look at 
+[Sphinx](http://sphinx-doc.org/), which is the tool used to create 
+documentation for Python itself as well as most of the main scientific 
+packages. The websites documenting [core Python](http://docs.python.org/2/), 
+[matplotlib](http://matplotlib.org/), and 
+[numpy](http://docs.scipy.org/doc/numpy/) provide some useful examples of 
+Sphinx in use as well as some general documentation styles that you might wish 
+to review.
+
+### Testing
 
 OK, back to our project. We now have the file `mean_sightings.py` in our `src` 
 directory. Now copy in your file `test_mean_sightings.py`, which contains the 

@@ -1,9 +1,14 @@
 #!/usr/bin/env python
 
-'''
-Module/script to calculate mean number of sightings of a given animal in a 
-given sightings csv file.
-'''
+"""
+Module containing functions to calculate mean number of sightings of a given
+animal in a given sightings csv file.
+
+Functions
+---------
+get_sightings - get number of sightings of focus animal in data set
+
+"""
 
 import sys
 import matplotlib.mlab as ml
@@ -11,6 +16,28 @@ import numpy as np
 
 
 def get_sightings(filename, focusanimal):
+    """
+    Get number of sightings of a focus animal in a data set.
+
+    Parameters
+    ----------
+    filename : str
+        Path to file containing sightings data
+    focusanimal : str
+        Name of focus animal (not case sensitive)
+
+    Returns
+    -------
+    result : tuple
+        Tuple containing total count of number of focus animal seen and mean
+        count of individuals per sighting event.
+
+    Notes
+    -----
+    Data file must be csv format with Animal and Count columns containing
+    animal name and count of individuals per sighting, respectively.
+
+    """
 
     # Load table
     tab = ml.csv2rec(filename)
