@@ -201,10 +201,19 @@ represents a relative path, which puts the file in your current directory).
     bootcamp$ ls
     file.txt
 
+We can easily rename or move existing files with the `mv` command, which takes 
+one argument for the existing path to the file and one argument for the new 
+path to the file. The command below uses two relative paths to perform a simple 
+rename of the file.
+
+    bootcamp$ mv file.txt file1.txt
+    bootcamp$ ls
+    file1.txt
+
 Since this file isn't doing much for us, let's delete it using `rm`, short for 
 "remove".
 
-    bootcamp$ rm file.txt
+    bootcamp$ rm file1.txt
     bootcamp$ ls
     bootcamp$ 
 
@@ -217,9 +226,10 @@ on this concept later) - `rm -r directory-name` will delete a directory called
 `directory-name` and all of its contents.
 
 >###Exercise 1
->Use `touch` to recreate `file.txt`. Change directories back to your desktop 
->and remove the `bootcamp` directory and the file in it. Recreate the 
->`bootcamp` directory and `cd` back into it.
+>Change directories to your desktop. Use `touch` to recreate `file.txt` on your 
+>Desktop, and then use `mv` to move it into your `bootcamp` directory. Remove 
+>the `bootcamp` directory and the file in it. Recreate the `bootcamp` directory 
+>and `cd` back into it.
 
 As you perform the above steps, there are two very useful productivity 
 shortcuts for working in the shell that you should try out. The first is called 
