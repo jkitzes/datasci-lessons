@@ -51,8 +51,9 @@ projects, we'll go through the following key steps:
 1.	Create a clear and useful directory structure for our project.
 2.	Set up (and use) Git to track our changes.
 3.	Add the raw data to our project.
-4.	Write our code to perform the analysis, including tests.
-5.	Push the button and watch the magic.
+4.	Write the core "scientific code" to perform the analysis, including tests.
+5.  Create a "runall" script to generate results for our specific project.
+6.	Push the button and watch the magic.
 
 One final note - the workflow that we're following here is just a suggestion. 
 Organizing code and data is an art, and a room of 100 scientists will give you 
@@ -197,12 +198,29 @@ created earlier in the testing lesson into your `src` subdirectory. Or you can
 download a complete copy of this file [here](mean_sightings-full.py), making 
 sure to delete the "-full" from the end of the file name.
 
-Note, of course, that this is not the normal workflow for this step. Normally, 
-you'd spend days/weeks/months working in the `src` directory, writing code and 
-tests, generating results, looking at the results, writing new code and tests, 
-generating new results, etc. This iterative cycle isn't unlike writing a 
-paper - you spew out a draft that's not too bad, then go back and revise it, 
-then spew out some new material, revise that, etc.
+Note that, by itself, the code in our `mean_sightings.py` file doesn't actually 
+generate any results for us - this file just contains the core functions that 
+we have written to perform our analysis. Later on, we'll write a small 
+`runall.py` script that imports these core functions and generates our results 
+for this particular project. In small projects, you can combine these two 
+files, but it's good practice to keep your actual analysis code in a separate 
+module where it can easily be tested and reused later on. This separation of 
+files also supports a mental separation of roles - the module is where you 
+write and test the guts of your code (the stuff that "does science") whereas 
+the `runall` script is just the few lines that take this "science" and applies 
+it to your particular data set to generate your particular results (the stuff 
+that spits out "these results"). If you wanted to perform the same analysis on 
+a different data set or with a different set of input parameters, for example, 
+you should be able to accomplish that by modifying just the `runall` file that 
+we'll discuss later.
+
+Note, of course, that copying and pasting in a completed module is not the 
+normal workflow for this step. Normally, you'd spend days/weeks/months working 
+in the `src` directory, writing code and tests, generating results, looking at 
+the results, writing new code and tests, generating new results, etc. This 
+iterative cycle isn't unlike writing a paper - you spew out a draft that's not 
+too bad, then go back and revise it, then spew out some new material, revise 
+that, etc.
 
 Different people have different favorite approaches and tools for this 
 iterative cycle.
@@ -272,7 +290,8 @@ set) to your git repository. You can commit these together, or separately if
 you think it would be useful to add a different commit message for the 
 different files.
 
-#### The runall script
+5. The runall script
+--------------------
 
 Now that we have our core functions and tests in place, it's time to create the 
 "button" for our push-button workflow - the `runall.py` script. The idea is 
@@ -408,7 +427,7 @@ lines here to adjust the formatting.
 
 Don't forget to add `runall.py` to your git repo.
 
-5. Run the push button analysis
+6. Run the push button analysis
 -------------------------------
 
 Now with everything in place, we're ready for the magic. Just for good measure, 
