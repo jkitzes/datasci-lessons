@@ -546,6 +546,17 @@ string `TODO` that occur in all of the Python files in this directory (the
 `*.py` uses a simple system wildcard to find all files ending with `.py` in 
 this directory).
 
+One final note about wildcards - unfortunately, there are several possible 
+"languages" for using wildcards that you may encounter, and they are not 
+consistent with each other. The other most widely used wildcard syntax is known 
+as globbing, and it's what's used by the bash shell by default. The most 
+important difference is the `*` symbol, which in "regular" shell commands is 
+used to represent any number of characters (like `.*` in a regular expression). 
+So `ls *.jpg`, for example, will list all of the JPG files in a directory, `cat 
+a*.csv` will print the contents of all csv files starting with the letter "a" 
+in a directory, and `mv *rd* /subdir` will move all files containing "rd" into 
+subdir.
+
 Wrapping up
 -----------
 
