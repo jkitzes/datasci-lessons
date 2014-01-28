@@ -532,7 +532,7 @@ and one to find all the lines in which the second letter is "o".
     Wolf,3
     Wolverine,5
 
->###Exercise 5
+>###Exercise 6
 >Using regular search strings or regular expressions where necessary, use grep 
 >to extract lines from `sorted_animals.csv for which (1) the second letter is a 
 >vowel (all animals except Owl), and (2) the line contains an "r" and later an 
