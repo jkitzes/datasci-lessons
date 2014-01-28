@@ -129,4 +129,4 @@ As we go through this lesson, you can ask questions in two ways:
 
 
 [1]: 
-http://software-carpentry.org/2012/08/applying-pedagogical-principles-in-this-course/
+http://software-carpentry.org/2012/08/applying-pedagogical-principles-in-this-course.html
