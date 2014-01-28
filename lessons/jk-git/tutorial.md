@@ -1052,7 +1052,7 @@ published your first scientific software package!
 >###Exercise 8
 >Take a few minutes to poke around the Github page for your project. In 
 >particular, try clicking on the link for the file `script.py` and the link in 
->the header that says "7 commits". Ask your instructors any questions as they 
+>the header that says "7 commits".  Ask your instructors any questions as they 
 >come up.
 >
 >If you'd like to make sure that you've got this workflow down, create a README 
@@ -1152,10 +1152,10 @@ to the owner's Github repository (very convenient) - the collaborator can thus
 push changes to the remote master branch on Github using the same command that 
 we saw before, `git push origin master`. Second, when it comes time for the 
 owner to download and sync the new changes that the collaborator pushed to 
-Github, the owner can just use the command `git pull`, which will download and 
-merge in all changes in the Github remote master branch to your local master 
-branch (assuming that the owner is on the master branch - run `git checkout 
-master` if you're not sure).
+Github, the owner can just use the command `git pull origin master`, which will
+download and merge in all changes in the master branch of the git remote
+`origin` to your locally checked out branch (when running this, make sure you're
+on the master branch - run `git checkout master` if you're not sure).
 
 >###Exercise 9
 >Complete the three steps described above for a simple collaborative workflow. 
