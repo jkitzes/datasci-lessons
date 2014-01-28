@@ -47,19 +47,6 @@ that you (a) will get to reinforce the most important concepts during
 exercises, and (b) will be able to come back to these materials later to 
 continue mastering the concepts.
 
-As an analogy for our overall strategy for teaching Python, picture becoming a 
-scientific programmer as constructing a house. First you pour the foundation, 
-then you frame the house with wood beams, then you put on a roof, seal it up, 
-and furnish it (or something like that). We are hoping that many of you have 
-arrived today with the foundation already poured - that is, you understand 
-basically how to get some things done using small scripts or programs in some 
-language. In these lessons, we will mostly focus on constructing the frame of 
-the house together by putting in place the major structures and concepts that 
-support all scientific programs. Once the workshop is over, you'll need to go 
-out on your own and fill in this structure with drywall, insulation, and a 
-couch. (We'll try to point out some useful fixtures that you might want to add 
-to your house as we go along.)
-
 The Seven Core Concepts
 -----------------------
 
