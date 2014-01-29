@@ -732,7 +732,7 @@ will always take you back to a safe, known location at the tip of your main
 trunk.
 
 
-5. Merging two project branches together
+4. Merging two project branches together
 ----------------------------------------
 
 We've now discussed how to use branches to develop your project along two 
@@ -948,7 +948,7 @@ Sourcetree, which you can download and install
 [Smartgit](http://www.syntevo.com/smartgithg/) or search for other 
 alternatives.
 
-6. Sharing a project
+5. Sharing a project
 --------------------
 
 Once you have your research projects managed with version control, you will 
@@ -1065,7 +1065,7 @@ to set up and use [SSH
 keys](https://help.github.com/articles/generating-ssh-keys), but we won't go 
 through that process here.
 
-7. Syncing and collaborating
+6. Syncing and collaborating
 ----------------------------
 
 Syncing files across multiple computers and collaborating with colleagues on a 
