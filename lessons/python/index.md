@@ -89,14 +89,18 @@ extention (i.e., .ipynb) is retained.
     - [Master Notebook](python-full.ipynb)
    
 *   Read Write Tutorial
-    - [Student Notebook](readwrite-empty.ipynb)
+    - [Student Notebook](readwrite.ipynb)
     - [Master Notebook](readwrite-full.ipynb)
     - [File txt](sightings_recs_sm.txt), [File csv](sightings_tab_sm.csv)
 
 *   Matplotlib
-    - [Student Notebook](matplotlib-empty.ipynb)
+    - [Student Notebook](matplotlib.ipynb)
     - [Master Notebook](matplotlib-full.ipynb)
     - [Image](lena.png)
+
+*   Numpy
+    - [Student Notebook](numpy.ipynb)
+    - [Master Notebook](numpy-full.ipynb)
 
 Starting an IPython Notebook
 ----------------------------
