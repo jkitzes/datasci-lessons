@@ -1,136 +1,68 @@
 ---
-layout: lesson
+layout: page
 root: ../..
-title: Scientific Python Basics
+title: Scientific Programming Basics
 ---
 
-Goals
------
+Scientific Programming Basics
+=============================
 
-Despite what the title above might suggest, the purpose of this Software 
-Carpentry bootcamp is __not__ to teach you how to program in Python. While we 
-do love Python for scientific computing, the goals of these modules is actually 
-to teach you the basic, core concepts of programming that transcend languages, 
-how they fit together, and how you can use them to become a better scientist.
+The purpose of this section is to teach you the basic, core concepts of programming that transcend languages, how they fit together, and how you can use them to become a better scientist. Although these lessons use Python to teach these concepts, they are applicable to nearly all programming languages that you might use for your scientific work.
 
-By the end of these scientific Python lessons, you will be able to:
+We (the instructors) recognize that you all unavoidably have come with very different backgrounds in Python programming. We expect that some of you may be familiar with basic Python, while a few of you of you have experience with additional modules such as numpy and scipy --- for those in that latter category, this section of the lessons may not be as novel as the other sections. However, we hope that the method of presentation will help to solidify your existing knowledge. We also encourage you to take the opportunity to ask the instructors and volunteers about more advanced techniques that you might have heard of but do not know how to use well.
 
-1.	Describe and distinguish the seven core elements shared by all programming 
-	languages.
-2.	Use Python to write simple programs that use these core elements, using 
-	both the core library and scientific packages such as numpy.
-3.	Make and save simple publication-quality plots using matplotlib.
-4.	Read, manipulate, and save data files in csv and text formats.
-5.	Write unit tests to confirm the accuracy of your Python code.
-6.	Create standalone Python scripts that can be run from the command line.
+For those who have no (or almost no) background in programming in any language, you may find that these lessons proceed quickly. We encourage you to make liberal use of the helpful volunteers as we proceed through these lessons. You may also wish to consider working together with a partner to complete the exercises as a team.
 
-We (the instructors) recognize that you all unavoidably have come with very 
-different levels of background in Python programming. We expect that some of 
-you might be experienced in basic Python and a few of you of you have 
-experience with additional modules such as numpy and scipy - for those in that 
-category, this section of the workshop may not be as novel as the other 
-sections. However, we hope that the method of presentation will help to 
-solidify your existing knowledge. We also encourage you to take the opportunity 
-to ask the instructors and volunteers about more advanced techniques that you 
-might have heard of but do not know how to use well.
-
-For those who have no (or almost no) background in programming in any language, 
-you may find that these lessons proceed quickly. We encourage you to make 
-liberal use of the helpful volunteers as we proceed through these lessons. You 
-may also wish to consider working together with a partner to complete the 
-exercises as a team.
-
-Regardless of your background, you will probably feel like trying to take in 
-all of this material is like trying to drink from a firehose. That's OK - the 
-idea is to at least introduce you to a wide variety of topics, with the hope 
-that you (a) will get to reinforce the most important concepts during 
-exercises, and (b) will be able to come back to these materials later to 
-continue mastering the concepts.
+Regardless of your background, you will probably feel like trying to take in all of this material is like trying to drink from a firehose. That's OK - the idea is to introduce you to a wide variety of topics, with the hope that you (a) will get to reinforce the most important concepts during exercises, and (b) will be able to come back to these materials later to continue mastering the concepts.
 
 The Seven Core Concepts
 -----------------------
 
-As noted by Greg Wilson (the founder of Software Carpentry), every programming 
-language shares [seven core elements][1]:
+These lessons are organized around the [seven core elements](http://software-carpentry.org/2012/08/applying-pedagogical-principles-in-this-course.html) shared by all programming languages:
 
-1.	Individual things (the number 2, the string 'hello', a matplotlib figure)
-2.	Commands that operate on things (the + symbol, the `len` function)
-3.	Groups of things (Python lists, tuples, and dictionaries)
+1.	Individual things (the number 2, the string 'hello', a figure)
+2.	Commands that operate on things (the + symbol, the len function)
+3.	Groups of things (lists, arrays, tuples, dictionaries)
 4.	Ways to repeat yourself (for and while loops)
 5.	Ways to make choices (if and try statements)
-6.	Ways to create chunks (functions, objects/classes, and modules)
+6.	Ways to create chunks (functions, objects/classes, modules)
 7.	Ways to combine chunks (function composition)
 
-The lines between these are often blurry in practice - for example, a string in 
-Python actually mixes some characteristics of a thing, a group, and a "chunk". 
-The distinctions between these categories is not particularly relevant to the 
-computer - they are purely a conceptual framework that helps programmers write 
-code that does what they want it to do.
+In practice, the lines between these categories can be blurry --- for example, a string in Python actually mixes some characteristics of a thing, a group, and a "chunk". It's important to remember that these distinctions provide a conceptual framework that will help you, the programmer, to make sense of your programs. In the lessons below, we'll focus on the first six of these steps, as the seventh isn't as common in scientific Python and is a bit more conceptually advanced than the others.
 
-We expect that you'll find the basics of 1 and 2 fairly straightforward. We'll 
-go quickly through those and will spend the most time on items 3-6. We won't 
-really talk about 7, as it is not as common in scientific Python programming as 
-it is in, say, shell scripting (pipes and redirection).
-
-Don't worry if you don't already know what all of the above examples mean - 
+Don't worry if you don't already know what all of the above examples mean --- 
 you'll know by the end of this lesson.
 
-Getting the Files
------------------
+The Lesson Files
+----------------
 
-Our Python tutorial during this bootcamp will rely on a number of additional 
-files. The files that you'll need for each lesson are linked below - download 
-these and save them in an easily accessible folder on your hard drive. Make 
-sure that when you save each file in your browser, the appropriate file 
-extention (i.e., .ipynb) is retained.
+Our Python lessons are divided into two main parts. In Scientific Programming I, we'll walk through these steps using a simple example of calculating time series data using a difference equation. This lesson will introduce you to the concepts described above and show how they can help structure your thinking about programming. In Scientific Programming II, we'll follow the same steps again, but using a more complex and real-life example of reading and analyzing a small data set. There's also an extra lesson below with some helpful tips on making publication-quality plots.
 
-*   Scientific Programming
-    - [Student Notebook](python.ipynb)
-    - [Master Notebook](python-full.ipynb)
-   
-*   Read Write Tutorial
-    - [Student Notebook](readwrite.ipynb)
-    - [Master Notebook](readwrite-full.ipynb)
-    - [File txt](sightings_recs_sm.txt), [File csv](sightings_tab_sm.csv)
+Each of these lessons relies on several files that you should download and save in an easily accessible location on your hard drive (perhaps a folder on your Desktop). Make sure that when you save each file in your browser, the appropriate file extention (i.e., .ipynb) is retained.
 
-*   Matplotlib
-    - [Student Notebook](matplotlib.ipynb)
-    - [Master Notebook](matplotlib-full.ipynb)
-    - [Image](lena.png)
+During the workshop, you should open and fill out the Student Notebooks below --- the Master Notebook is the same as the Student Notebook but has the answers to all of the exercises filled in. Feel free to review the Master Notebooks if you're stuck or if you are reviewing the lessons outside of a workshop.
 
-*   Numpy
-    - [Student Notebook](numpy.ipynb)
-    - [Master Notebook](numpy-full.ipynb)
+{% assign nbvurl = site.workshop_site | remove: 'http://' %}
 
-Starting an IPython Notebook
-----------------------------
+*   Scientific Programming I: Logistic growth
+    - Student Notebook: [Download](python1-student.ipynb), [View](http://nbviewer.ipython.org/url/{{nbvurl}}/lessons/python/python1-student.ipynb)
+    - Master Notebook: [Download](python1-master.ipynb), [View](http://nbviewer.ipython.org/url/{{nbvurl}}/lessons/python/python1-master.ipynb)
 
-To learn about these core concepts and the Python language, we'll start off by 
-working within the IPython notebook.
+*   Scientific Programming II: Analyzing bird counts
+    - Student Notebook: [Download](python2-student.ipynb), [View](http://nbviewer.ipython.org/url/{{nbvurl}}/lessons/python/python2-student.ipynb)
+    - Master Notebook: [Download](python2-master.ipynb), [View](http://nbviewer.ipython.org/url/{{nbvurl}}/lessons/python/python2-master.ipynb)
+    - Data Tables: [Small table](birds_sm.csv), [Large table](birds_lg.csv)
 
-To start up a notebook, open Terminal and navigate to the folder containing the 
-ipynb notebook files that you wish to open (or to any directory in which you'd 
-like to save a new notebook, if you're creating a new notebook from scratch). 
-Once in the directory, run the command `ipython notebook`, which will launch a 
+*   Extra: Plotting
+    - Master Notebook: [Download](matplotlib-master.ipynb), [View](http://nbviewer.ipython.org/url/{{nbvurl}}/lessons/python/matplotlib-master.ipynb)
+
+Starting a Jupyter Notebook
+---------------------------
+
+To learn about these core concepts and the Python language, we'll start off by working within a Jupyter notebook. These notebooks are not just for teaching --- many scientists, myself included, use them as part of our "regular" software development process.
+
+To start up a notebook, open a Terminal window and navigate to the folder containing the Jupyter notebook files that you wish to open. Once in the directory, run the command `jupyter notebook`, which will launch a 
 local webserver and open your default browser. From there you can open an 
 existing notebook, create a new notebook, and start working.
 
-Note that if you are on a Windows machine, this command may not run under 
-mysysgit or Cygwin. If it doesn't, open a Command Prompt (click on the Start 
-menu and type `cmd` in the search box for Windows 7, or click on Run then type 
-cmd for Windows XP), navigate to the appropriate directory, and run the command 
-`ipython notebook`.
-
-Asking Questions
-----------------
-
-As we go through this lesson, you can ask questions in two ways:
-
-1.	If you have a question for me, just raise your hand and ask.
-2.	If you have a question that you think might be restricted to just you (like 
-	something on your computer isn't working), raise your hand an a volunteer 
-	will come over to help you individually.
-
-
-[1]: 
-http://software-carpentry.org/2012/08/applying-pedagogical-principles-in-this-course.html
+Note that if you are on a Windows machine, this command may not run under Git Bash. If it doesn't, open a Command Prompt (click on the Start menu and type `cmd` in the search box or click on Run then type `cmd`), navigate to the appropriate directory, then run the command `ipython notebook`.

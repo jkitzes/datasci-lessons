@@ -54,7 +54,7 @@ table {
 }
 
 blockquote {
-  margin: 3ex 3em;
+  margin: 3ex 3ex;
   border-left: 5px solid #ddd;
   padding-left: 1em;
 }
@@ -90,8 +90,8 @@ ul.posts {
   font-size: 100%;
   text-align: left;
   hyphens: auto;
-  width: 38em;
-  margin: 3em auto 2em auto;
+  width: 39em;
+  margin: 2em auto 2em auto;
   line-height: 140%;
 }
 
@@ -167,7 +167,8 @@ ul.posts {
   #post pre {
     border: 1px solid #ddd;
     background-color: #eef;
-    padding: 0 .4em;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
   }
 
   #post ul,
@@ -185,7 +186,11 @@ ul.posts {
   }
 
     #post pre code {
+      white-space: pre-wrap;
       border: none;
+      font-size: 85%;
+      padding-right: 0em;
+      padding-left: 0em;
     }
 
   /* terminal */

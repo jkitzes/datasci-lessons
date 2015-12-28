@@ -1,4 +1,8 @@
-markdown        : redcarpet
-pygments        : true
+markdown        : kramdown
+highlighter     : pygments
 safe            : true
 lsi             : false
+
+# Line below gives root gh-pages URL, used for nbviewer links in Python lesson
+# Name matches variable in _config in swcarpentry workshop-template repo
+workshop_site : "http://datasci.kitzes.com"
